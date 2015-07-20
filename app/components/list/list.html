@@ -1,0 +1,18 @@
+<h1>friends List</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Age</th>
+    </tr>
+    <tr *ng-for="#friend of list.get()">
+        <td>{{friend.firstName}}</td>
+        <td>{{friend.lastName}}</td>
+        <td>{{friend.age}}</td>
+    </tr>
+    <tr>
+        <td colspan="2"><a class="btn-default btn" [router-link]="['/add']">Add a friend</a></td>
+        <td></td>
+    </tr>
+</table>
+
