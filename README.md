@@ -18,6 +18,7 @@ npm install -g gulp
 # dev
 gulp serve.dev
 
+or npm install -g http-server and go to the directory dist/dev and use 'http-server'
 
 Configure your app base if you serve the app from another directory than root in `gulpfile.js`.
 Defaults to `var APP_BASE = '/'`
