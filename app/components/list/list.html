@@ -4,15 +4,30 @@
         <th>FirstName</th>
         <th>LastName</th>
         <th>Age</th>
+        <th>Select</th>
+        <th>Delete</th>
     </tr>
-    <tr *ng-for="#friend of list.get()">
+    <tr *ng-for="#friend of friendService.get()">
         <td>{{friend.firstName}}</td>
         <td>{{friend.lastName}}</td>
         <td>{{friend.age}}</td>
-    </tr>
-    <tr>
-        <td colspan="2"><a class="btn-default btn" [router-link]="['/add']">Add a friend</a></td>
-        <td></td>
+        <td>
+            <button (click)="onSelect(friend)">Select</button>
+        </td>
+        <td>
+            <button (click)="onDelete(friend)">Delete</button>
+        </td>
     </tr>
 </table>
 
+<form #friendform="form">
+    <table class="table table-bordered">
+        <tr>
+            <td><input type="text" ng-control="firstname" [(ng-model)]="friend.firstName" placeholder="firstName"/></td>
+            <td><input type="text" ng-control="lastname" [(ng-model)]="friend.lastName" placeholder="lastName"/></td>
+            <td><input type="text" ng-control="age" [(ng-model)]="friend.age" placeholder="age"/></td>
+            <td><button (click)="onAddOrUpdate()">{{addOrUpdate}}</button></td>
+            <td><button (click)="onClear()">Clear</button></td>
+        </tr>
+    </table>
+</form>
